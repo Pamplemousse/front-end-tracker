@@ -21,9 +21,14 @@ class Rule {
     }
 
     this.onEvent = function (event) {
+      const domElement = event.target;
       const data = {
         topic: 'dom-events',
-        element: event.target.nodeName,
+        element: {
+          nodeName: domElement.nodeName,
+          className: domElement.className,
+          id: domElement.id
+        },
         event: event.type
       };
       options.callback(null, data);
