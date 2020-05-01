@@ -31,6 +31,8 @@ class Rule {
 
       if (['keydown', 'keypress', 'keyup'].includes(event.type)) {
         element = {...element, value: event.key};
+      } else if (event.type === 'input') {
+        element = {...element, value: domElement.value};
       }
 
       const data = {

@@ -12,7 +12,7 @@
 
 'use strict';
 
-const FORM_EVENTS = ['reset', 'submit'];
+const FORM_EVENTS = ['input', 'reset', 'submit'];
 const CLIPBOARD_EVENTS = ['cut', 'copy', 'paste'];
 const KEYBOARD_EVENTS = ['keydown', 'keypress', 'keyup'];
 const MOUSE_EVENTS = [
