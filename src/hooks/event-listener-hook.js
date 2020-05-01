@@ -22,15 +22,23 @@ class Rule {
 
     this.onEvent = function (event) {
       const domElement = event.target;
+
+      let element = {
+        nodeName: domElement.nodeName,
+        className: domElement.className,
+        id: domElement.id
+      };
+
+      if (['keydown', 'keypress', 'keyup'].includes(event.type)) {
+        element = {...element, value: event.key};
+      }
+
       const data = {
+        element,
         topic: 'dom-events',
-        element: {
-          nodeName: domElement.nodeName,
-          className: domElement.className,
-          id: domElement.id
-        },
         event: event.type
       };
+
       options.callback(null, data);
     };
   }
